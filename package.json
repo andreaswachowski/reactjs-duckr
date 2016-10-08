@@ -4,6 +4,7 @@
   "description": "Sample project created when following http://courses.reactjsprogram.com/courses/redux-and-immutablejs",
   "main": "actions.js",
   "scripts": {
+    "lint": "eslint webpack.config.js app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

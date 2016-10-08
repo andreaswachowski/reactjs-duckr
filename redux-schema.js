@@ -14,7 +14,7 @@
     }
   },
   modal: {
-    duck,
+    duckText,
     isOpen
   },
   ducks: {
@@ -58,17 +58,17 @@
       lastUpdated,
       replies: {
         [replyId]: {
-          lastUpdated,
           name,
-          comment,
+          reply,
           uid,
           timestamp,
-          avatar
+          avatar,
+          replyId
         }
       }
     }
   },
   listeners: {
-    [listenersId]: true
+    [listenerId]: true
   },
 }

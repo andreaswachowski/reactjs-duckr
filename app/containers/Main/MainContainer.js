@@ -1,9 +1,14 @@
 import React from 'react';
 
 const MainContainer = React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
   render () {
     return (
-      <p>{'Hello World!'}</p>
+      <div>
+        {this.props.children}
+      </div>
     );
   }
 });

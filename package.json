@@ -2,7 +2,7 @@
   "name": "duckr",
   "version": "1.0.0",
   "description": "Sample project created when following http://courses.reactjsprogram.com/courses/redux-and-immutablejs",
-  "main": "actions.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "production": "webpack -p",

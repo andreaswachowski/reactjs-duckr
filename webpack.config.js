@@ -7,12 +7,17 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 });
 
+var PATHS = {
+  app: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'dist')
+};
+
 module.exports = {
   entry: [
-    './app/index.js'
+    PATHS.app
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: PATHS.build,
     filename: 'index_bundle.js'
   },
   module: {

@@ -13,6 +13,7 @@ var PATHS = {
 };
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     PATHS.app
   ],

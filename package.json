@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "production": "webpack -p",
-    "lint": "eslint webpack.config.js app",
+    "lint": "eslint webpack.config.js app/.; exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

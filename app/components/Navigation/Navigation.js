@@ -2,9 +2,10 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import {container, navContainer, link} from './styles.css';
 
-NavLinks.propTypes = {
+Navigation.propTypes = ActionLinks.propTypes = NavLinks.propTypes = {
   isAuthed: PropTypes.bool.isRequired
 };
+
 function NavLinks ({isAuthed}) {
   return isAuthed === true
     ? <ul>
@@ -13,9 +14,6 @@ function NavLinks ({isAuthed}) {
     : null;
 }
 
-ActionLinks.propTypes = {
-  isAuthed: PropTypes.bool.isRequired
-};
 function ActionLinks ({isAuthed}) {
   return isAuthed === true
     ? <ul>
@@ -28,9 +26,6 @@ function ActionLinks ({isAuthed}) {
       </ul>;
 }
 
-Navigation.propTypes = {
-  isAuthed: PropTypes.bool.isRequired
-};
 export default function Navigation ({isAuthed}) {
   return (
     <div className={container}>

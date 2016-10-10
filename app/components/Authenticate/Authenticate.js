@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {FacebookAuthButton} from 'components';
 import {centeredContainer, largeHeader, errorMsg} from 'sharedStyles/styles.css';
 
 Authenticate.propTypes = {
@@ -11,7 +12,7 @@ export default function Authenticate ({error, isFetching, onAuth}) {
   return (
     <div className={centeredContainer}>
       <h1 className={largeHeader}>{'Authenticate'}</h1>
-      <p>{'Facebook auth button'}</p>
+      <FacebookAuthButton isFetching={isFetching} onAuth={onAuth} />
       {error ? <p className={errorMsg}>{error}</p> : null}
     </div>
   );

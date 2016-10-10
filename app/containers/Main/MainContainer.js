@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Navigation} from 'components';
 import {container, innerContainer} from './styles.css';
 
 const MainContainer = React.createClass({
   propTypes: {
-    children: React.PropTypes.node
+    children: PropTypes.node
   },
   render () {
     return (

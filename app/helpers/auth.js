@@ -14,3 +14,7 @@ export function checkIfAuthed (store) {
   // TODO: Add Firebase-check
   return store.getState().isAuthed;
 }
+
+export function logout () {
+  console.log('Logged out.');
+}

@@ -9,3 +9,8 @@ export default function auth () {
     }, 2000);
   });
 }
+
+export function checkIfAuthed (store) {
+  // TODO: Add Firebase-check
+  return store.getState().isAuthed;
+}

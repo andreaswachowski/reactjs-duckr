@@ -50,6 +50,6 @@ const MainContainer = React.createClass({
 });
 
 export default connect(
-  (state) => ({isAuthed: state.isAuthed, isFetching: state.isFetching}), // inlined mapStateToProps
+  ({users}) => ({isAuthed: users.isAuthed, isFetching: users.isFetching}), // inlined mapStateToProps
   (dispatch) => bindActionCreators(userActionCreators, dispatch)
 )(MainContainer);

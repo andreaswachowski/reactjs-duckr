@@ -11,6 +11,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(users, undefined, composeEnhancers(applyMiddleware(thunk)));
 
 function checkAuth (nextState, replace) {
+  if (store.getState().isFetching === true) {
+    return;
+  }
   const isAuthed = checkIfAuthed(store);
   const nextPathName = nextState.location.pathname;
   if (nextPathName === '/' || nextPathName === '/auth') {

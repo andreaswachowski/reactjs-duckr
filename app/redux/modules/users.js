@@ -7,7 +7,7 @@ const FETCHING_USER = 'FETCHING_USER';
 const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE';
 const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS';
 
-function authUser (uid) {
+export function authUser (uid) {
   return {
     type: AUTH_USER,
     uid
@@ -33,7 +33,7 @@ function fetchingUserFailure (error) {
   };
 }
 
-function fetchingUserSuccess (uid, user, timestamp) {
+export function fetchingUserSuccess (uid, user, timestamp) {
   return {
     type: FETCHING_USER_SUCCESS,
     uid,
@@ -87,7 +87,7 @@ function user (state = initialUserState, action) {
 }
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
   error: '',
   isAuthed: false,
   authedId: ''

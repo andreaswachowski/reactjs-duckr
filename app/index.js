@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import {checkIfAuthed} from 'helpers/auth';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(users, undefined, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(users, composeEnhancers(applyMiddleware(thunk)));
 
 function checkAuth (nextState, replace) {
   if (store.getState().isFetching === true) {

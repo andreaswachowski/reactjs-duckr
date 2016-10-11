@@ -18,7 +18,7 @@ function NavLinks ({isAuthed}) {
 function ActionLinks ({isAuthed}) {
   return isAuthed === true
     ? <ul>
-      <li><ModalContainer /></li>
+        <li><ModalContainer /></li>
         <li><Link to='/logout' className={link}>{'Logout'}</Link></li>
       </ul>
     : <ul>

@@ -14,6 +14,7 @@ const MainContainer = React.createClass({
     authUser: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
     fetchingUserSuccess: PropTypes.func.isRequired,
+    removeFetchingUser: PropTypes.func.isRequired,
     children: PropTypes.node
   },
   contextTypes: {
@@ -29,6 +30,8 @@ const MainContainer = React.createClass({
         if (this.props.location.pathname === '/') {
           this.context.router.replace('feed');
         }
+      } else {
+        this.props.removeFetchingUser();
       }
     });
   },

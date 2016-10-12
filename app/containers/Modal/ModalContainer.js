@@ -2,6 +2,7 @@ import {bindActionCreators} from 'redux';
 import {Modal} from 'components';
 import {connect} from 'react-redux';
 import * as modalActionCreators from 'redux/modules/modal';
+import * as ducksActionCreators from 'redux/modules/ducks';
 
 // No need for a ModalContainer, since it doesn't have any state
 // nor any lifecycle events. We can directly pass the props to the
@@ -21,7 +22,7 @@ function mapStateToProps ({modal, users}) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(modalActionCreators, dispatch);
+  return bindActionCreators({...modalActionCreators, ...ducksActionCreators}, dispatch);
 }
 
 export default connect(

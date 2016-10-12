@@ -2,3 +2,4 @@
 // https://github.com/leebyron/ecmascript-export-default-from
 export {default as users} from './users';
 export {default as modal} from './modal';
+export {default as ducks} from './ducks';

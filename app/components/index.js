@@ -1,9 +1,9 @@
-// Stage 1 variant: export Home from './Home/Home';
+// The syntax below is currently stage 1, see
 // https://github.com/leebyron/ecmascript-export-default-from
-export {default as Home} from './Home/Home';
-export {default as Navigation} from './Navigation/Navigation';
-export {default as Authenticate} from './Authenticate/Authenticate';
-export {default as FacebookAuthButton} from './FacebookAuthButton/FacebookAuthButton';
-export {default as Feed} from './Feed/Feed';
-export {default as Logout} from './Logout/Logout';
-export {default as Modal} from './Modal/Modal';
+export Home from './Home/Home';
+export Navigation from './Navigation/Navigation';
+export Authenticate from './Authenticate/Authenticate';
+export FacebookAuthButton from './FacebookAuthButton/FacebookAuthButton';
+export Feed from './Feed/Feed';
+export Logout from './Logout/Logout';
+export Modal from './Modal/Modal';

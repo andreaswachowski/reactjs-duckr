@@ -1,8 +1,8 @@
-// Stage 1 variant: export users from './users';
+// The syntax below is currently stage 1, see
 // https://github.com/leebyron/ecmascript-export-default-from
-export {default as users} from './users';
-export {default as modal} from './modal';
-export {default as ducks} from './ducks';
-export {default as usersDucks} from './usersDucks';
-export {default as feed} from './feed';
-export {default as listeners} from './listeners';
+export users from './users';
+export modal from './modal';
+export ducks from './ducks';
+export usersDucks from './usersDucks';
+export feed from './feed';
+export listeners from './listeners';

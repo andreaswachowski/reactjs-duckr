@@ -25,3 +25,18 @@ export function saveDuck (duck) {
     saveLikeCount(duckId)
   ]).then(() => ({...duck, duckId}));
 }
+
+export function listenToFeed (cb, errorCb) {
+  // Set a listener on the ducks firebase endpoint
+  // 'value' means that changes will be get as a whole
+  ref.child('ducks').on('value', (snapshot) => {
+    const feed = snapshot.val() || {};
+    // Sorting could of course happen in Firebase,
+    // but that's not in the scope of the tutorial
+    const sortedIds = Object.keys(feed).sort((a, b) => {
+      return feed[b].timestamp - feed[a].timestamp;
+    });
+
+    cb({feed, sortedIds});
+  }, errorCb);
+}

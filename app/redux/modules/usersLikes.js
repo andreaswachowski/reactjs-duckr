@@ -1,3 +1,7 @@
+import {
+  fetchUsersLikes, saveToUsersLikes, deleteFromUsersLikes,
+  incrementNumberOfLikes, decrementNumberOfLikes
+} from 'helpers/api';
 export const ADD_LIKE = 'ADD_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 const FETCHING_LIKES = 'FETCHING_LIKES';
@@ -35,6 +39,39 @@ function fetchingLikesSuccess (likes) {
   return {
     type: FETCHING_LIKES_SUCCESS,
     likes
+  };
+}
+
+export function addAndHandleLike (duckId, e) {
+  e.stopPropagation();
+  return function (dispatch, getState) {
+    dispatch(addLike(duckId));
+
+    const uid = getState().users.authedId;
+    Promise.all([
+      saveToUsersLikes(uid, duckId),
+      incrementNumberOfLikes(duckId)
+    ]).catch((error) => {
+      // if the like can't be persisted, remove it again from the state/GUI
+      console.warn(error);
+      dispatch(removeLike(duckId));
+    });
+  };
+}
+
+export function handleDeleteLike (duckId, e) {
+  e.stopPropagation();
+  return function (dispatch, getState) {
+    dispatch(removeLike(duckId));
+
+    const uid = getState().users.authedId;
+    Promise.all([
+      deleteFromUsersLikes(uid, duckId),
+      decrementNumberOfLikes(duckId)
+    ]).catch((error) => {
+      console.warn(error);
+      dispatch(addLike(duckId));
+    });
   };
 }
 

@@ -1,7 +1,5 @@
 import React, {PropTypes} from 'react';
 
 export default function Duck (props) {
-  return (
-    <div></div>
-  );
+  return <div>{'Duck'}</div>;
 }

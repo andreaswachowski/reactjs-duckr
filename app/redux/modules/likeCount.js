@@ -40,29 +40,29 @@ export function count (state = 0, action) {
 const initialState = {
   isFetching: false,
   error: ''
-}
+};
 
-export default function likeCount(state = initialState, action) {
+export default function likeCount (state = initialState, action) {
   switch (action.type) {
     case FETCHING_COUNT:
       return {
         ...state,
         isFetching: true
-      }
+      };
 
     case FETCHING_COUNT_ERROR:
       return {
         ...state,
         isFetching: false,
         error: action.error
-      }
+      };
 
     case FETCHING_COUNT_SUCCESS:
       return {
         ...state,
         ...initialState,
         [action.duckId]: action.count
-      }
+      };
 
     case ADD_LIKE:
     case REMOVE_LIKE:
@@ -71,7 +71,7 @@ export default function likeCount(state = initialState, action) {
         : {
           ...state,
           [action.duckId]: count(state[action.duckId], action)
-        }
+        };
 
     default:
       return state;

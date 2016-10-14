@@ -11,6 +11,7 @@ const UserContainer = React.createClass({
     noUser: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     isFetching: PropTypes.bool.isRequired,
+    routeParams: PropTypes.any,
     error: PropTypes.string.isRequired,
     duckIds: PropTypes.array.isRequired,
     fetchAndHandleUsersDucks: PropTypes.func.isRequired,

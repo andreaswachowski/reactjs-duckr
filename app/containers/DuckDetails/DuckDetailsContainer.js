@@ -27,6 +27,7 @@ const DuckDetailsContainer = React.createClass({
   render () {
     return (
       <DuckDetails
+        addAndHandleReply={(duckId, reply) => console.log(duckId, reply)}
         authedUser={this.props.authedUser}
         duckId={this.props.duckId}
         isFetching={this.props.isFetching}

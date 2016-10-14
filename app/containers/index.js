@@ -8,3 +8,4 @@ export LogoutContainer from './Logout/LogoutContainer';
 export ModalContainer from './Modal/ModalContainer';
 export DuckContainer from './Duck/DuckContainer';
 export UserContainer from './User/UserContainer';
+export DuckDetailsContainer from './DuckDetails/DuckDetailsContainer';

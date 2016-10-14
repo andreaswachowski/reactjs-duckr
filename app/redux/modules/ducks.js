@@ -71,16 +71,19 @@ const initialState = {
 
 export default function ducks (state = initialState, action) {
   switch (action.type) {
-    case ADD_DUCK:
-      return {
-        ...state,
-        [action.duck.duckId]: action.duck
-      };
-
     case FETCHING_DUCK:
       return {
         ...state,
         isFetching: true
+      };
+
+    case ADD_DUCK:
+    case FETCHING_DUCK_SUCCESS:
+      return {
+        ...state,
+        error: '',
+        isFetching: false,
+        [action.duck.duckId]: action.duck
       };
 
     case FETCHING_DUCK_ERROR:
@@ -88,14 +91,6 @@ export default function ducks (state = initialState, action) {
         ...state,
         isFetching: false,
         error: action.error
-      };
-
-    case FETCHING_DUCK_SUCCESS:
-      return {
-        ...state,
-        error: '',
-        isFetching: false,
-        [action.duck.duckId]: action.duck
       };
 
     case REMOVE_FETCHING:

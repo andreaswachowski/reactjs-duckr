@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Replies} from 'components';
 import {bindActionCreators} from 'redux';
 import * as repliesActionCreators from 'redux/modules/replies';
+import {staleReplies} from 'helpers/utils';
 
 const RepliesContainer = React.createClass({
   propTypes: {
@@ -20,7 +21,9 @@ const RepliesContainer = React.createClass({
     };
   },
   componentDidMount: function () {
-    this.props.fetchAndHandleReplies(this.props.duckId);
+    if (staleReplies(this.props.lastUpdated)) {
+      this.props.fetchAndHandleReplies(this.props.duckId);
+    }
   },
   render () {
     return (

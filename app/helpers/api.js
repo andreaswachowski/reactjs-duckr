@@ -1,7 +1,7 @@
 import {ref} from 'config/constants';
 
 function saveToDucks (duck) {
-  const duckId = ref.child('ducks').push().key;
+  const duckId = ref.child('ducks').push().key; // pushing nothing to get a key back
   const duckPromise = ref.child(`ducks/${duckId}`).set({...duck, duckId});
 
   return {duckId, duckPromise};

@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Replies} from 'components';
+import {bindActionCreators} from 'redux';
+import * as repliesActionCreators from 'redux/modules/replies';
 
 const RepliesContainer = React.createClass({
   propTypes: {
@@ -8,13 +10,17 @@ const RepliesContainer = React.createClass({
     error: PropTypes.string.isRequired,
     lastUpdated: PropTypes.number.isRequired,
     replies: PropTypes.object.isRequired,
-    duckId: PropTypes.string.isRequired // passed in from DuckDetails
+    duckId: PropTypes.string.isRequired, // passed in from DuckDetails
+    fetchAndHandleReplies: PropTypes.func.isRequired
   },
   getDefaultProps () {
     return {
       lastUpdated: 0,
       replies: {}
     };
+  },
+  componentDidMount: function () {
+    this.props.fetchAndHandleReplies(this.props.duckId);
   },
   render () {
     return (
@@ -39,4 +45,6 @@ function mapStateToProps (state, props) {
   };
 }
 
-export default connect(mapStateToProps)(RepliesContainer);
+export default connect(mapStateToProps,
+  (dispatch) => bindActionCreators(repliesActionCreators, dispatch),
+)(RepliesContainer);

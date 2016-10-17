@@ -23,6 +23,7 @@
   "homepage": "https://github.com/andreaswachowski/reactjs-duckr#readme",
   "dependencies": {
     "firebase": "^3.4.1",
+    "immutable": "^3.8.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-icons": "^2.2.1",

@@ -1,3 +1,5 @@
+import {postReply} from 'helpers/api';
+
 const FETCHING_REPLIES = 'FETCHING_REPLIES';
 const FETCHING_REPLIES_ERROR = 'FETCHING_REPLIES_ERROR';
 const FETCHING_REPLIES_SUCCESS = 'FETCHING_REPLIES_SUCCESS';
@@ -50,6 +52,21 @@ function fetchingRepliesSuccess (duckId, replies) {
   };
 }
 
+export function addAndHandleReply (duckId, reply) {
+  return function (dispatch, getState) {
+    // The same pattern as everywhere. First we invoke the asynchronous
+    // request (here postReply) and handle the successful case
+    // (here addReply). If however the request fails, we reverse
+    // that change and dispatch the error.
+    const { replyWithId, replyPromise } = postReply(duckId, reply);
+
+    dispatch(addReply(duckId, replyWithId));
+    replyPromise.catch((error) => {
+      dispatch(removeReply(duckId, replyWithId.replyId));
+      dispatch(addReplyError(error));
+    });
+  };
+}
 
 const initialReply = {
   name: '',
